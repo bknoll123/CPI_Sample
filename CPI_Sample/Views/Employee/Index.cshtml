@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CPI_Sample.Models.Employee>
+
+@{
+    ViewBag.Title = "Employee Index";
+}
+
+<h2>Employee Index</h2>
+
+<table>
+    <tr>
+        <th class="leftth">
+            Initals
+        </th>
+        <th class="leftth">
+            Phone #
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeInitials)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeePhone)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.employeeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.employeeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.employeeId })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

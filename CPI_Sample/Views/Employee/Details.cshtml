@@ -1,0 +1,29 @@
+﻿@model CPI_Sample.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Employee</legend>
+
+    <div class="display-label">
+         Initials
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeeInitials)
+    </div>
+
+    <div class="display-label">
+         Phone #
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.employeePhone)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.employeeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,46 @@
+﻿@model CPI_Sample.Models.Employee
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Employee</legend>
+
+        @Html.HiddenFor(model => model.employeeId)
+
+        <div class="editor-label">
+           Initials
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.employeeInitials)
+            @Html.ValidationMessageFor(model => model.employeeInitials)
+        </div>
+
+        <div class="editor-label">
+            Phone #
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.employeePhone)
+            @Html.ValidationMessageFor(model => model.employeePhone)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

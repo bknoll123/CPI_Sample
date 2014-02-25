@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CPI_Sample.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customer Index</h2>
+
+<table>
+    <tr>
+        <th class="leftth">
+            Account #            
+        </th>
+        <th class="leftth">
+            Rep Id
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerAccountNumber)
+            
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee.employeeInitials)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.customerId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.customerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.customerId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
